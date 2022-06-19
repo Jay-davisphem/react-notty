@@ -7,7 +7,7 @@ function Header({ isDarkMode, setIsDarkMode, bodyDarkMode }){
   };
   return (
     <header className="header">
-      <h1>React Notes</h1>
+      <h1>Notty Notes</h1>
       {isDarkMode ? (
         <MdDarkMode className="dark_class" onClick={handleMode} size="3em" />
       ) : (
