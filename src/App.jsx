@@ -7,23 +7,17 @@ console.log(nanoid());
 function App() {
   const [notes, setNotes] = useState(
     JSON.parse(localStorage.getItem("correct-user-notes"))
-  );
+  || []);
   const [searchText, setSearchText] = useState("");
   const [isDarkMode, setIsDarkMode] = useState(JSON.parse(localStorage.getItem('user-mode')) || false);
 
   useEffect(() => {
     const userNotes = JSON.parse(localStorage.getItem("correct-user-notes"));
-    try{
-    if (userNotes) setNotes(userNotes);
-    }catch(e){
-      console.error(e)
-    }
+    if (userNotes) setNotes(userNotes || []);
   }, []);
   useEffect(() => {
-    try{
     localStorage.setItem("correct-user-notes", JSON.stringify(notes));
-  }catch(e){console.error(e)
-  }}, [notes]);
+  }, [notes]);
   const addNote = (text) => {
     const date = new Date();
     const newNote = {
@@ -40,7 +34,7 @@ function App() {
   };
   return (
     <>
-      <main className={`${isDarkMode ? "dark_mode" : "light_mode"} container`}>
+      <main className={`${isDarkMode && "dark_mode"} container`}>
         <Header isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
         <Search setSearchText={setSearchText} />
         <NotesList

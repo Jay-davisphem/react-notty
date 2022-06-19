@@ -80,40 +80,16 @@ main {
   justify-content: space-between;
   align-items: center;
 }
-.dark_class {
-  color: white;
-}
 
-@keyframes dark-mode {
-  from {
-    background-color: white;
-  }
-  to {
-    background-color: black;
-  }
-}
-
-@keyframes light-mode {
-  from {
-    background-color: black;
-  }
-  to {
-    background-color: white;
-  }
-}
 .dark_mode {
   background-color: black;
-  animation-name: dark-mode;
-  animation-duration: 4s;
 }
+.dark_class,
 .dark_mode h1 {
   color: white;
 }
-
-.light_mode {
-  background-color: white;
-  animation-name: light-mode;
-  animation-duration: 4s;
+.note.new, .new > textarea{
+  color: white;
 }
 @media (max-width: 400px) {
   .notes_list {
